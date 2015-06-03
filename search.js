@@ -212,8 +212,9 @@ function onSearchResponsestucky(response) { // stuckman
 
   else{
 
-    var element = document.getElementById("stuckbrik");
-    element.parentNode.removeChild(element);      
+      var element = document.getElementById("stuckytplayer2");   // need to make it remove all the players
+      element.parentNode.removeChild(element);    
+
     // document.getElementById("stuckytplayer1").src = "";   // clear out
     // document.getElementById("stuckytplayer2").src = "";
     // document.getElementById("stuckytplayer3").src = "";
