@@ -212,7 +212,13 @@ function onSearchResponsestucky(response) { // stuckman
 
   else{
 
+      var element = document.getElementById("stuckytplayer1");   // need to make it remove all the players
+      element.parentNode.removeChild(element);    
+
       var element = document.getElementById("stuckytplayer2");   // need to make it remove all the players
+      element.parentNode.removeChild(element);    
+
+      var element = document.getElementById("stuckytplayer3");   // need to make it remove all the players
       element.parentNode.removeChild(element);    
 
     // document.getElementById("stuckytplayer1").src = "";   // clear out
@@ -269,9 +275,20 @@ function onSearchResponseJoe(response) { // a joe
 
   else{
 
-    document.getElementById("joeytplayer1").src = "";   // clear out
-    document.getElementById("joeytplayer2").src = "";
-    document.getElementById("joeytplayer3").src = "";
+
+    var element = document.getElementById("joeytplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("joeytplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("joeytplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+
+    // document.getElementById("joeytplayer1").src = "";   // clear out
+    // document.getElementById("joeytplayer2").src = "";
+    // document.getElementById("joeytplayer3").src = "";
 
     console.log("no results");
     document.getElementById("joeytitle").innerHTML = "<h2>No results from Angry Joe</h2>";   
@@ -323,9 +340,18 @@ function onSearchResponseKermode(response) { // kermode
 
   else{
 
-    document.getElementById("kermodeplayer1").src = "";   // clear out
-    document.getElementById("kermodeplayer2").src = "";
-    document.getElementById("kermodeplayer3").src = "";
+    var element = document.getElementById("kermodeplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("kermodeplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("kermodeplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
+
+    // document.getElementById("kermodeplayer1").src = "";   // clear out
+    // document.getElementById("kermodeplayer2").src = "";
+    // document.getElementById("kermodeplayer3").src = "";
 
     console.log("no results");
     document.getElementById("kermodetitle").innerHTML = "<h2>No results from kermode</h2>";   
@@ -377,9 +403,18 @@ function onSearchResponseEscapist(response) { // the escapist
 
   else{
 
-    document.getElementById("escapistplayer1").src = "";   // clear out
-    document.getElementById("escapistplayer2").src = "";
-    document.getElementById("escapistplayer3").src = "";
+    var element = document.getElementById("escapistplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("escapistplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("escapistplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
+
+    // document.getElementById("escapistplayer1").src = "";   // clear out
+    // document.getElementById("escapistplayer2").src = "";
+    // document.getElementById("escapistplayer3").src = "";
 
     console.log("no results");
     document.getElementById("escapisttitle").innerHTML = "<h2>No results from the escapist</h2>";   
@@ -431,9 +466,18 @@ function onSearchResponseGuardian(response) { // the escapist
 
   else{
 
-    document.getElementById("guardianplayer1").src = "";   // clear out
-    document.getElementById("guardianplayer2").src = "";
-    document.getElementById("guardianplayer3").src = "";
+    var element = document.getElementById("guardianplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("guardianplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("guardianplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
+
+    // document.getElementById("guardianplayer1").src = "";   // clear out
+    // document.getElementById("guardianplayer2").src = "";
+    // document.getElementById("guardianplayer3").src = "";
 
     console.log("no results");
     document.getElementById("guardiantitle").innerHTML = "<h2>No results from the guardian</h2>";   
@@ -485,9 +529,18 @@ function onSearchResponseRemaker(response) { // the escapist
 
   else{
 
-    document.getElementById("remakerplayer1").src = "";   // clear out
-    document.getElementById("remakerplayer2").src = "";
-    document.getElementById("remakerplayer3").src = "";
+    var element = document.getElementById("remakerplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("remakerplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("remakerplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
+
+    // document.getElementById("remakerplayer1").src = "";   // clear out
+    // document.getElementById("remakerplayer2").src = "";
+    // document.getElementById("remakerplayer3").src = "";
 
     console.log("no results");
     document.getElementById("remakertitle").innerHTML = "<h2>No results from the remaker</h2>";   
@@ -539,9 +592,18 @@ function onSearchResponseCinefix(response) { // the escapist
 
   else{
 
-    document.getElementById("cinefixplayer1").src = "";   // clear out
-    document.getElementById("cinefixplayer2").src = "";
-    document.getElementById("cinefixplayer3").src = "";
+    var element = document.getElementById("cinefixplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("cinefixplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("cinefixplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
+
+    // document.getElementById("cinefixplayer1").src = "";   // clear out
+    // document.getElementById("cinefixplayer2").src = "";
+    // document.getElementById("cinefixplayer3").src = "";
 
     console.log("no results");
     document.getElementById("cinefixtitle").innerHTML = "<h2>No results from Cinefix</h2>";   
@@ -593,9 +655,18 @@ function onSearchResponseMrSundayMovies(response) { // the escapist
 
   else{
 
-    document.getElementById("mrsundayplayer1").src = "";   // clear out
-    document.getElementById("mrsundayplayer2").src = "";
-    document.getElementById("mrsundayplayer3").src = "";
+    var element = document.getElementById("mrsundayplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("mrsundayplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("mrsundayplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
+
+    // document.getElementById("mrsundayplayer1").src = "";   // clear out
+    // document.getElementById("mrsundayplayer2").src = "";
+    // document.getElementById("mrsundayplayer3").src = "";
 
     console.log("no results");
     document.getElementById("mrsundaytitle").innerHTML = "<h2>No results from the MrSunday</h2>";   
@@ -647,9 +718,18 @@ function onSearchResponsePainting(response) { // the escapist
 
   else{
 
-    document.getElementById("paintingplayer1").src = "";   // clear out
-    document.getElementById("paintingplayer2").src = "";
-    document.getElementById("paintingplayer3").src = "";
+    var element = document.getElementById("paintingplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("paintingplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("paintingplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
+
+    // document.getElementById("paintingplayer1").src = "";   // clear out
+    // document.getElementById("paintingplayer2").src = "";
+    // document.getElementById("paintingplayer3").src = "";
 
     console.log("no results");
     document.getElementById("paintingtitle").innerHTML = "<h2>No results from Painting</h2>";   
@@ -701,9 +781,18 @@ function onSearchResponseGoodBadFlicks(response) { // the escapist
 
   else{
 
-    document.getElementById("goodbadplayer1").src = "";   // clear out
-    document.getElementById("goodbadplayer2").src = "";
-    document.getElementById("goodbadplayer3").src = "";
+    var element = document.getElementById("goodbadplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("goodbadplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("goodbadplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element); 
+
+    // document.getElementById("goodbadplayer1").src = "";   // clear out
+    // document.getElementById("goodbadplayer2").src = "";
+    // document.getElementById("goodbadplayer3").src = "";
 
     console.log("no results");
     document.getElementById("goodbadtitle").innerHTML = "<h2>No results from GoodBadFlicks</h2>";   
