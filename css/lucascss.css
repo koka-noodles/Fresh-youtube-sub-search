@@ -1,16 +1,48 @@
 body {
-    background-color: #fff; 
-    background-image: 
+   /* background-color: #fff; */
+    /*background-image: 
     linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
     linear-gradient(#eee .1em, transparent .1em);
-    background-size: 100% 1.2em;
+    background-size: 100% 1.2em;*/
 }
+
+html { 
+  background: url(../images/deep.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+img.bg {
+      /* Set rules to fill background */
+      min-height: 100%;
+      min-width: 1024px;
+      
+      /* Set up proportionate scaling */
+      width: 100%;
+      height: auto;
+      
+      /* Set up positioning */
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    
+    @media screen and (max-width: 1024px){
+      img.bg {
+        left: 50%;
+        margin-left: -512px; }
+    }
+    
+    #page-wrap { position: relative; width: 400px; margin: 50px auto; padding: 20px; background: white; -moz-box-shadow: 0 0 20px black; -webkit-box-shadow: 0 0 20px black; box-shadow: 0 0 20px black; }
+    p { font: 15px/2 Georgia, Serif; margin: 0 0 30px 0; text-indent: 40px; }
 	
-#myvids {
+#tvids {
     padding-top: 25px;
-    padding-right: 50px;
+    padding-right: 20px;
     padding-bottom: 25px;
-    padding-left: 50px;
+    padding-left: 20px;
 }
 
 #results { 
@@ -34,4 +66,14 @@ body {
 
 #title {
 	text-align: center;
+}
+
+h2{
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+.row {
+  margin-right: auto;
+  margin-left: auto;
 }
