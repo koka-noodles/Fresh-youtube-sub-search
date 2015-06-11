@@ -52,85 +52,81 @@ function verifyorder() {
   });
   // Send the request to the API server,
   // and invoke onSearchRepsonse() with the response.
-  request.execute(onSearchResponseKermode);
+  request.execute(onSearchResponseKermode); 
 
-  //   // disable start
+  var request = gapi.client.youtube.search.list({ // search 4 for the escapist
+    part: 'snippet', 
+    channelId: 'UCADQiLMJMO3HUMvePgscTMg' ,  // the escapist
+    q: order ,
+    maxResults: 3
+  });
+  // Send the request to the API server,
+  // and invoke onSearchRepsonse() with the response.
+  request.execute(onSearchResponseEscapist);
 
 
-//   var request = gapi.client.youtube.search.list({ // search 4 for the escapist
-//     part: 'snippet', 
-//     channelId: 'UCADQiLMJMO3HUMvePgscTMg' ,  // the escapist
-//     q: order ,
-//     maxResults: 3
-//   });
-//   // Send the request to the API server,
-//   // and invoke onSearchRepsonse() with the response.
-//   request.execute(onSearchResponseEscapist);
 
-//   var request = gapi.client.youtube.search.list({ // search 5 for the remaker
-//     part: 'snippet', 
-//     channelId: 'UC1Ra1PtRYMwv2DO7DfXA9Tw' ,  // the remaker
-//     q: order ,
-//     maxResults: 3
-//   });
-//   // Send the request to the API server,
-//   // and invoke onSearchRepsonse() with the response.
-//   request.execute(onSearchResponseRemaker);
+  var request = gapi.client.youtube.search.list({ // search 5 for the remaker
+    part: 'snippet', 
+    channelId: 'UC1Ra1PtRYMwv2DO7DfXA9Tw' ,  // the remaker
+    q: order ,
+    maxResults: 3
+  });
+  // Send the request to the API server,
+  // and invoke onSearchRepsonse() with the response.
+  request.execute(onSearchResponseRemaker);
 
-//   var request = gapi.client.youtube.search.list({ // search 6 for the cinefix
-//     part: 'snippet', 
-//     channelId: 'UCVtL1edhT8qqY-j2JIndMzg' ,  // the cinefix
-//     q: order ,
-//     maxResults: 3
-//   });
-//   // Send the request to the API server,
-//   // and invoke onSearchRepsonse() with the response.
-//   request.execute(onSearchResponseCinefix);
+  var request = gapi.client.youtube.search.list({ // search 6 for the cinefix
+    part: 'snippet', 
+    channelId: 'UCVtL1edhT8qqY-j2JIndMzg' ,  // the cinefix
+    q: order ,
+    maxResults: 3
+  });
+  // Send the request to the API server,
+  // and invoke onSearchRepsonse() with the response.
+  request.execute(onSearchResponseCinefix);
 
-//   var request = gapi.client.youtube.search.list({ // search 8 for every frame a painting
-//     part: 'snippet', 
-//     channelId: 'UCjFqcJQXGZ6T6sxyFB-5i6A' ,  // every frame a painting
-//     q: order ,
-//     maxResults: 3
-//   });
-//   // Send the request to the API server,
-//   // and invoke onSearchRepsonse() with the response.
-//   request.execute(onSearchResponsePainting);
+  var request = gapi.client.youtube.search.list({ // search 8 for every frame a painting
+    part: 'snippet', 
+    channelId: 'UCjFqcJQXGZ6T6sxyFB-5i6A' ,  // every frame a painting
+    q: order ,
+    maxResults: 3
+  });
+  // Send the request to the API server,
+  // and invoke onSearchRepsonse() with the response.
+  request.execute(onSearchResponsePainting);
 
-//   var request = gapi.client.youtube.search.list({ // search 9 for good bad flicks
-//     part: 'snippet', 
-//     channelId: 'UCtKttDTGqEbBrC7jDN2_axQ' ,  // good bad flicks
-//     q: order ,
-//     maxResults: 3
-//   });
-//   // Send the request to the API server,
-//   // and invoke onSearchRepsonse() with the response.
-//   request.execute(onSearchResponseGoodBadFlicks);
+  var request = gapi.client.youtube.search.list({ // search 9 for good bad flicks
+    part: 'snippet', 
+    channelId: 'UCtKttDTGqEbBrC7jDN2_axQ' ,  // good bad flicks
+    q: order ,
+    maxResults: 3
+  });
+  // Send the request to the API server,
+  // and invoke onSearchRepsonse() with the response.
+  request.execute(onSearchResponseGoodBadFlicks);
 
-//   var request = gapi.client.youtube.search.list({ // search 10 for mr Sunday movies 
-//     part: 'snippet', 
-//     channelId: 'UCkDSAQ_5-yx5hmuvUcsJL7A' ,  // mr Sunday movies 
-//     q: order ,
-//     maxResults: 3
-//   });
-//   // Send the request to the API server,
-//   // and invoke onSearchRepsonse() with the response.
-//   request.execute(onSearchResponseMrSundayMovies);
+  var request = gapi.client.youtube.search.list({ // search 10 for mr Sunday movies 
+    part: 'snippet', 
+    channelId: 'UCkDSAQ_5-yx5hmuvUcsJL7A' ,  // mr Sunday movies 
+    q: order ,
+    maxResults: 3
+  });
+  // Send the request to the API server,
+  // and invoke onSearchRepsonse() with the response.
+  request.execute(onSearchResponseMrSundayMovies);
 
-//   var request = gapi.client.youtube.search.list({ // search 11 for the guardian film show
-//     part: 'snippet', 
-//     channelId: 'UC4OxS-w63-g00lI7nGkzpcw' ,  // the guardian film show
-//     q: order ,
-//     maxResults: 3
-//   });
-//   // Send the request to the API server,
-//   // and invoke onSearchRepsonse() with the response.
-//   request.execute(onSearchResponseGuardian);
+  var request = gapi.client.youtube.search.list({ // search 11 for the guardian film show
+    part: 'snippet', 
+    channelId: 'UC4OxS-w63-g00lI7nGkzpcw' ,  // the guardian film show
+    q: order ,
+    maxResults: 3
+  });
+  // Send the request to the API server,
+  // and invoke onSearchRepsonse() with the response.
+  request.execute(onSearchResponseGuardian);
 
-// disable end
 }
-
-
 
 // the remaker UC1Ra1PtRYMwv2DO7DfXA9Tw
 // cinefix UCVtL1edhT8qqY-j2JIndMzg
@@ -321,7 +317,12 @@ function onSearchResponseEscapist(response) { // the escapist
     $('#search-container').html('<pre>' + str + '</pre>');
 
     do {
-     var vindex = vnumber-1;
+      var vindex = vnumber-1;
+
+      var para = document.createElement("div");  
+      para.setAttribute("id", "escapistplayer"+vnumber);
+      document.getElementById("esDIV").appendChild(para);
+
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
 
@@ -339,14 +340,14 @@ function onSearchResponseEscapist(response) { // the escapist
 
   else{
 
-    // var element = document.getElementById("escapistplayer1");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("escapistplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("escapistplayer2");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("escapistplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("escapistplayer3");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);  
+    var element = document.getElementById("escapistplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
 
     document.getElementById("escapisttitle").innerHTML = "<h2>No results from the escapist</h2>";   
   }
@@ -371,6 +372,11 @@ function onSearchResponseGuardian(response) { // the Guardian
 
     do {
       var vindex = vnumber-1;
+
+      var para = document.createElement("div");  
+      para.setAttribute("id", "guardianplayer"+vnumber);
+      document.getElementById("guDIV").appendChild(para);
+
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
 
@@ -388,14 +394,14 @@ function onSearchResponseGuardian(response) { // the Guardian
 
   else{
 
-    // var element = document.getElementById("guardianplayer1");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("guardianplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("guardianplayer2");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("guardianplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("guardianplayer3");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);  
+    var element = document.getElementById("guardianplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
 
     document.getElementById("guardiantitle").innerHTML = "<h2>No results from the guardian</h2>";   
   }
@@ -420,6 +426,11 @@ function onSearchResponseRemaker(response) { // the remaker
 
     do {
       var vindex = vnumber-1;
+
+      var para = document.createElement("div");  
+      para.setAttribute("id", "remakerplayer"+vnumber);
+      document.getElementById("reDIV").appendChild(para);
+
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
 
@@ -437,14 +448,14 @@ function onSearchResponseRemaker(response) { // the remaker
 
   else{
 
-    // var element = document.getElementById("remakerplayer1");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("remakerplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("remakerplayer2");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("remakerplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("remakerplayer3");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);  
+    var element = document.getElementById("remakerplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
 
     document.getElementById("remakertitle").innerHTML = "<h2>No results from the remaker</h2>";   
   }
@@ -469,6 +480,12 @@ function onSearchResponseCinefix(response) { // Cinefix
 
     do {
       var vindex = vnumber-1;
+
+      var para = document.createElement("div");  
+      para.setAttribute("id", "cinefixplayer"+vnumber);
+      document.getElementById("ciDIV").appendChild(para);
+
+
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
 
@@ -486,14 +503,14 @@ function onSearchResponseCinefix(response) { // Cinefix
 
   else{
 
-    // var element = document.getElementById("cinefixplayer1");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("cinefixplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("cinefixplayer2");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("cinefixplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("cinefixplayer3");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);  
+    var element = document.getElementById("cinefixplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
 
     document.getElementById("cinefixtitle").innerHTML = "<h2>No results from Cinefix</h2>";   
   }
@@ -517,6 +534,12 @@ function onSearchResponseMrSundayMovies(response) { // MrSunday
 
     do {
       var vindex = vnumber-1;
+
+      var para = document.createElement("div");  
+      para.setAttribute("id", "mrsundayplayer"+vnumber);
+      document.getElementById("mrDIV").appendChild(para);
+
+
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
 
@@ -534,14 +557,14 @@ function onSearchResponseMrSundayMovies(response) { // MrSunday
 
   else{
 
-    // var element = document.getElementById("mrsundayplayer1");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("mrsundayplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("mrsundayplayer2");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("mrsundayplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("mrsundayplayer3");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);  
+    var element = document.getElementById("mrsundayplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
 
     document.getElementById("mrsundaytitle").innerHTML = "<h2>No results from the MrSunday</h2>";   
   }
@@ -565,6 +588,11 @@ function onSearchResponsePainting(response) { // Painting
 
     do {
       var vindex = vnumber-1;
+
+      var para = document.createElement("div");  
+      para.setAttribute("id", "paintingplayer"+vnumber);
+      document.getElementById("paDIV").appendChild(para);
+
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
 
@@ -582,14 +610,14 @@ function onSearchResponsePainting(response) { // Painting
   }
   else{
 
-    // var element = document.getElementById("paintingplayer1");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("paintingplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("paintingplayer2");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);    
+    var element = document.getElementById("paintingplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
 
-    // var element = document.getElementById("paintingplayer3");   // need to make it remove all the players
-    // element.parentNode.removeChild(element);  
+    var element = document.getElementById("paintingplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
 
     document.getElementById("paintingtitle").innerHTML = "<h2>No results from Painting</h2>";   
   }
@@ -613,6 +641,11 @@ function onSearchResponseGoodBadFlicks(response) { // the goodbad
 
     do {
       var vindex = vnumber-1;
+
+      var para = document.createElement("div");  
+      para.setAttribute("id", "goodbadplayer"+vnumber);
+      document.getElementById("goDIV").appendChild(para);
+
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
 
@@ -629,6 +662,16 @@ function onSearchResponseGoodBadFlicks(response) { // the goodbad
   }
 
   else{
+
+    var element = document.getElementById("goodbadplayer1");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("goodbadplayer2");   // need to make it remove all the players
+    element.parentNode.removeChild(element);    
+
+    var element = document.getElementById("goodbadplayer3");   // need to make it remove all the players
+    element.parentNode.removeChild(element);  
+    
     document.getElementById("goodbadtitle").innerHTML = "<h2>No results from GoodBadFlicks</h2>";   
   }
 }
