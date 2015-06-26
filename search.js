@@ -307,6 +307,7 @@ function onSearchResponseKermode(response) { // kermode
   }
   else{
       document.getElementById("nokermodetitle").innerHTML = "<h2>No results From kermode</h2>";   
+      document.getElementById("kermodetitle").innerHTML = "<h2></h2>";
   } 
 }
 
@@ -361,6 +362,7 @@ function onSearchResponseEscapist(response) { // the escapist
   }
   else{
       document.getElementById("noescapisttitle").innerHTML = "<h2>No results From escapist</h2>";   
+      document.getElementById("escapisttitle").innerHTML = "<h2></h2>";
   }
 }
 
@@ -415,6 +417,7 @@ function onSearchResponseGuardian(response) { // the Guardian
   }
   else{
       document.getElementById("noguardiantitle").innerHTML = "<h2>No results From guardian</h2>";   
+      document.getElementById("guardiantitle").innerHTML = "<h2></h2>";
   }
 }
 
@@ -468,7 +471,8 @@ function onSearchResponseRemaker(response) { // the remaker
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
-      document.getElementById("noremakertitle").innerHTML = "<h2>No results From remaker</h2>";   
+      document.getElementById("noremakertitle").innerHTML = "<h2>No results From remaker</h2>";  
+      document.getElementById("remakertitle").innerHTML = "<h2></h2>"; 
   }
 }
 
@@ -523,6 +527,7 @@ function onSearchResponseCinefix(response) { // Cinefix
   }
   else{
       document.getElementById("nocinefixtitle").innerHTML = "<h2>No results From cinefix</h2>";   
+      document.getElementById("cinefixtitle").innerHTML = "<h2></h2>";
   }
 }
 
@@ -577,6 +582,7 @@ function onSearchResponseMrSundayMovies(response) { // MrSunday
   }
   else{
       document.getElementById("nomrsundaytitle").innerHTML = "<h2>No results From mrsunday</h2>";   
+      document.getElementById("mrsundaytitle").innerHTML = "<h2></h2>";
   }
 }
 
@@ -630,7 +636,8 @@ function onSearchResponsePainting(response) { // Painting
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
-      document.getElementById("nopaintingtitle").innerHTML = "<h2>No results From painting</h2>";   
+      document.getElementById("nopaintingtitle").innerHTML = "<h2>No results From painting</h2>";
+      document.getElementById("paintingtitle").innerHTML = "<h2></h2>";   
   }
 }
 
@@ -685,6 +692,7 @@ function onSearchResponseGoodBadFlicks(response) { // the goodbad
   }
   else{
       document.getElementById("nogoodbadtitle").innerHTML = "<h2>No results From goodbad</h2>";   
+      document.getElementById("goodbadtitle").innerHTML = "<h2></h2>";
   }
 }
 
@@ -739,6 +747,7 @@ function onSearchResponsewisecrack(response) { //  wisecrack
   }
   else{
       document.getElementById("nowisecracktitle").innerHTML = "<h2>No results From wisecrack</h2>";   
+      document.getElementById("wisecracktitle").innerHTML = "<h2></h2>";
   }
 }
 
