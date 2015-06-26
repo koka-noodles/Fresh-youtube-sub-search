@@ -1,3 +1,5 @@
+var playnum = 0;
+console.log("I made playnum equal "+playnum);
 // Your use of the YouTube API must comply with the Terms of Service:
 // https://developers.google.com/youtube/terms
 // Helper function to display JavaScript value on HTML page.
@@ -21,6 +23,7 @@ function onYouTubeApiLoad() {
 
 function verifyorder() {
  
+
   var order = document.getElementById('value').value;
 
   var request = gapi.client.youtube.search.list({  // search 1 for stuckman
@@ -33,98 +36,98 @@ function verifyorder() {
   // and invoke onSearchRepsonse() with the response.
   request.execute(onSearchResponsestucky);
 
-  var request = gapi.client.youtube.search.list({ // search 2 for joe
-    part: 'snippet', 
-    channelId: 'UCsgv2QHkT2ljEixyulzOnUQ' ,  // JOE
-    q: order ,
-    maxResults: 3
-  });
-  // Send the request to the API server,
-  // and invoke onSearchRepsonse() with the response.
-  request.execute(onSearchResponseJoe);
+  // var request = gapi.client.youtube.search.list({ // search 2 for joe
+  //   part: 'snippet', 
+  //   channelId: 'UCsgv2QHkT2ljEixyulzOnUQ' ,  // JOE
+  //   q: order ,
+  //   maxResults: 3
+  // });
+  // // Send the request to the API server,
+  // // and invoke onSearchRepsonse() with the response.
+  // request.execute(onSearchResponseJoe);
 
 
-  var request = gapi.client.youtube.search.list({ // search 3 for kermode and mayo
-    part: 'snippet', 
-    channelId: 'UCCxKPNMqjnqbxVEt1tyDUsA' ,  // kermode and mayo
-    q: order ,
-    maxResults: 3
-  });
-  // Send the request to the API server,
-  // and invoke onSearchRepsonse() with the response.
-  request.execute(onSearchResponseKermode); 
+  // var request = gapi.client.youtube.search.list({ // search 3 for kermode and mayo
+  //   part: 'snippet', 
+  //   channelId: 'UCCxKPNMqjnqbxVEt1tyDUsA' ,  // kermode and mayo
+  //   q: order ,
+  //   maxResults: 3
+  // });
+  // // Send the request to the API server,
+  // // and invoke onSearchRepsonse() with the response.
+  // request.execute(onSearchResponseKermode); 
 
-  var request = gapi.client.youtube.search.list({ // search 4 for the escapist
-    part: 'snippet', 
-    channelId: 'UCADQiLMJMO3HUMvePgscTMg' ,  // the escapist
-    q: order ,
-    maxResults: 3
-  });
-  // Send the request to the API server,
-  // and invoke onSearchRepsonse() with the response.
-  request.execute(onSearchResponseEscapist);
+  // var request = gapi.client.youtube.search.list({ // search 4 for the escapist
+  //   part: 'snippet', 
+  //   channelId: 'UCADQiLMJMO3HUMvePgscTMg' ,  // the escapist
+  //   q: order ,
+  //   maxResults: 3
+  // });
+  // // Send the request to the API server,
+  // // and invoke onSearchRepsonse() with the response.
+  // request.execute(onSearchResponseEscapist);
 
 
 
-  var request = gapi.client.youtube.search.list({ // search 5 for the remaker
-    part: 'snippet', 
-    channelId: 'UC1Ra1PtRYMwv2DO7DfXA9Tw' ,  // the remaker
-    q: order ,
-    maxResults: 3
-  });
-  // Send the request to the API server,
-  // and invoke onSearchRepsonse() with the response.
-  request.execute(onSearchResponseRemaker);
+  // var request = gapi.client.youtube.search.list({ // search 5 for the remaker
+  //   part: 'snippet', 
+  //   channelId: 'UC1Ra1PtRYMwv2DO7DfXA9Tw' ,  // the remaker
+  //   q: order ,
+  //   maxResults: 3
+  // });
+  // // Send the request to the API server,
+  // // and invoke onSearchRepsonse() with the response.
+  // request.execute(onSearchResponseRemaker);
 
-  var request = gapi.client.youtube.search.list({ // search 6 for the cinefix
-    part: 'snippet', 
-    channelId: 'UCVtL1edhT8qqY-j2JIndMzg' ,  // the cinefix
-    q: order ,
-    maxResults: 3
-  });
-  // Send the request to the API server,
-  // and invoke onSearchRepsonse() with the response.
-  request.execute(onSearchResponseCinefix);
+  // var request = gapi.client.youtube.search.list({ // search 6 for the cinefix
+  //   part: 'snippet', 
+  //   channelId: 'UCVtL1edhT8qqY-j2JIndMzg' ,  // the cinefix
+  //   q: order ,
+  //   maxResults: 3
+  // });
+  // // Send the request to the API server,
+  // // and invoke onSearchRepsonse() with the response.
+  // request.execute(onSearchResponseCinefix);
 
-  var request = gapi.client.youtube.search.list({ // search 8 for every frame a painting
-    part: 'snippet', 
-    channelId: 'UCjFqcJQXGZ6T6sxyFB-5i6A' ,  // every frame a painting
-    q: order ,
-    maxResults: 3
-  });
-  // Send the request to the API server,
-  // and invoke onSearchRepsonse() with the response.
-  request.execute(onSearchResponsePainting);
+  // var request = gapi.client.youtube.search.list({ // search 8 for every frame a painting
+  //   part: 'snippet', 
+  //   channelId: 'UCjFqcJQXGZ6T6sxyFB-5i6A' ,  // every frame a painting
+  //   q: order ,
+  //   maxResults: 3
+  // });
+  // // Send the request to the API server,
+  // // and invoke onSearchRepsonse() with the response.
+  // request.execute(onSearchResponsePainting);
 
-  var request = gapi.client.youtube.search.list({ // search 9 for good bad flicks
-    part: 'snippet', 
-    channelId: 'UCtKttDTGqEbBrC7jDN2_axQ' ,  // good bad flicks
-    q: order ,
-    maxResults: 3
-  });
-  // Send the request to the API server,
-  // and invoke onSearchRepsonse() with the response.
-  request.execute(onSearchResponseGoodBadFlicks);
+  // var request = gapi.client.youtube.search.list({ // search 9 for good bad flicks
+  //   part: 'snippet', 
+  //   channelId: 'UCtKttDTGqEbBrC7jDN2_axQ' ,  // good bad flicks
+  //   q: order ,
+  //   maxResults: 3
+  // });
+  // // Send the request to the API server,
+  // // and invoke onSearchRepsonse() with the response.
+  // request.execute(onSearchResponseGoodBadFlicks);
 
-  var request = gapi.client.youtube.search.list({ // search 10 for mr Sunday movies 
-    part: 'snippet', 
-    channelId: 'UCkDSAQ_5-yx5hmuvUcsJL7A' ,  // mr Sunday movies 
-    q: order ,
-    maxResults: 3
-  });
-  // Send the request to the API server,
-  // and invoke onSearchRepsonse() with the response.
-  request.execute(onSearchResponseMrSundayMovies);
+  // var request = gapi.client.youtube.search.list({ // search 10 for mr Sunday movies 
+  //   part: 'snippet', 
+  //   channelId: 'UCkDSAQ_5-yx5hmuvUcsJL7A' ,  // mr Sunday movies 
+  //   q: order ,
+  //   maxResults: 3
+  // });
+  // // Send the request to the API server,
+  // // and invoke onSearchRepsonse() with the response.
+  // request.execute(onSearchResponseMrSundayMovies);
 
-  var request = gapi.client.youtube.search.list({ // search 11 for the guardian film show
-    part: 'snippet', 
-    channelId: 'UC4OxS-w63-g00lI7nGkzpcw' ,  // the guardian film show
-    q: order ,
-    maxResults: 3
-  });
-  // Send the request to the API server,
-  // and invoke onSearchRepsonse() with the response.
-  request.execute(onSearchResponseGuardian);
+  // var request = gapi.client.youtube.search.list({ // search 11 for the guardian film show
+  //   part: 'snippet', 
+  //   channelId: 'UC4OxS-w63-g00lI7nGkzpcw' ,  // the guardian film show
+  //   q: order ,
+  //   maxResults: 3
+  // });
+  // // Send the request to the API server,
+  // // and invoke onSearchRepsonse() with the response.
+  // request.execute(onSearchResponseGuardian);
 
 }
 
@@ -144,14 +147,28 @@ function onSearchResponsestucky(response) { // stuckman
   if(vnumber > capnum){
     vnumber = capnum;
   }
+
+  if(playnum > 0){
+    do {
+      playnum --;
+      console.log("playnum countdown "+playnum);
+      renum = playnum +1;
+      console.log("renum countdown "+renum);
+      var element = document.getElementById("stuckytplayer"+renum);   // need to make it remove all the players
+      element.parentNode.removeChild(element); 
+    }
+    while(playnum > 0);
+  }
+
   if(vnumber > 0){
+    // I'm going to add up to three players
+    document.getElementById("nostuckytitle").innerHTML = "<h2></h2>";   
     document.getElementById("stuckytitle").innerHTML = "<h2>Stuckman results</h2>";
     var str = JSON.stringify(response.result);
     $('#search-container').html('<pre>' + str + '</pre>');
 
     do {
       var vindex = vnumber-1;
-
       var para = document.createElement("div");  
       para.setAttribute("id", "stuckytplayer"+vnumber);
       document.getElementById("stDIV").appendChild(para);
@@ -163,35 +180,16 @@ function onSearchResponsestucky(response) { // stuckman
         width: 'auto'
       });
 
-
-
-      // var para = document.createElement("div");
-      // var t = document.createTextNode("This is a paragraph.");
-      // para.appendChild(t);
-      // document.getElementById("stuckytitle").appendChild(para);
-      //document.getElementById("myDIV").setAttribute("id", "recursive");
-
-
-
+      playnum++;
+      console.log("playnum in the add loop "+playnum);
       document.getElementById("stuckytplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
     }
     while(vnumber > 0); // the cap number is more then none    
   }
-
   else{
-
-
-      var element = document.getElementById("stuckytplayer1");   // need to make it remove all the players
-      element.parentNode.removeChild(element);    
-      var element = document.getElementById("stuckytplayer2");   // need to make it remove all the players
-      element.parentNode.removeChild(element);    
-      var element = document.getElementById("stuckytplayer3");   // need to make it remove all the players
-      element.parentNode.removeChild(element);   
-      
-
-      document.getElementById("stuckytitle").innerHTML = "<h2>No results From Stuckman</h2>";   
+      document.getElementById("nostuckytitle").innerHTML = "<h2>No results From Stuckman</h2>";   
   }
 }
 
@@ -242,7 +240,7 @@ function onSearchResponseJoe(response) { // a joe
     var element = document.getElementById("joeytplayer3");   // need to make it remove all the players
     element.parentNode.removeChild(element);    
 
-    document.getElementById("joeytitle").innerHTML = "<h2>No results from Angry Joe</h2>";   
+    document.getElementById("nojoeytitle").innerHTML = "<h2>No results from Angry Joe</h2>";   
   }
 }
 
@@ -251,7 +249,7 @@ function onSearchResponseKermode(response) { // kermode
 
   showResponse(response); 
   var vnumber = response.pageInfo.totalResults;  
-
+   
   if(vnumber > capnum){
     vnumber = capnum;
   }
@@ -277,6 +275,7 @@ function onSearchResponseKermode(response) { // kermode
       });
 
       document.getElementById("kermodeplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
+     
       //incement down the vnumber
       vnumber --;
     }
@@ -294,7 +293,7 @@ function onSearchResponseKermode(response) { // kermode
     var element = document.getElementById("kermodeplayer3");   // need to make it remove all the players
     element.parentNode.removeChild(element);  
 
-    document.getElementById("kermodetitle").innerHTML = "<h2>No results from kermode</h2>";   
+    document.getElementById("nokermodetitle").innerHTML = "<h2>No results from kermode</h2>";   
   }
 }
 
@@ -349,7 +348,7 @@ function onSearchResponseEscapist(response) { // the escapist
     var element = document.getElementById("escapistplayer3");   // need to make it remove all the players
     element.parentNode.removeChild(element);  
 
-    document.getElementById("escapisttitle").innerHTML = "<h2>No results from the escapist</h2>";   
+    document.getElementById("noescapisttitle").innerHTML = "<h2>No results from the escapist</h2>";   
   }
 }
 
@@ -403,7 +402,7 @@ function onSearchResponseGuardian(response) { // the Guardian
     var element = document.getElementById("guardianplayer3");   // need to make it remove all the players
     element.parentNode.removeChild(element);  
 
-    document.getElementById("guardiantitle").innerHTML = "<h2>No results from the guardian</h2>";   
+    document.getElementById("noguardiantitle").innerHTML = "<h2>No results from the guardian</h2>";   
   }
 }
 
@@ -457,7 +456,7 @@ function onSearchResponseRemaker(response) { // the remaker
     var element = document.getElementById("remakerplayer3");   // need to make it remove all the players
     element.parentNode.removeChild(element);  
 
-    document.getElementById("remakertitle").innerHTML = "<h2>No results from the remaker</h2>";   
+    document.getElementById("noremakertitle").innerHTML = "<h2>No results from the remaker</h2>";   
   }
 }
 
@@ -512,7 +511,7 @@ function onSearchResponseCinefix(response) { // Cinefix
     var element = document.getElementById("cinefixplayer3");   // need to make it remove all the players
     element.parentNode.removeChild(element);  
 
-    document.getElementById("cinefixtitle").innerHTML = "<h2>No results from Cinefix</h2>";   
+    document.getElementById("nocinefixtitle").innerHTML = "<h2>No results from Cinefix</h2>";   
   }
 }
 
@@ -566,7 +565,7 @@ function onSearchResponseMrSundayMovies(response) { // MrSunday
     var element = document.getElementById("mrsundayplayer3");   // need to make it remove all the players
     element.parentNode.removeChild(element);  
 
-    document.getElementById("mrsundaytitle").innerHTML = "<h2>No results from the MrSunday</h2>";   
+    document.getElementById("nomrsundaytitle").innerHTML = "<h2>No results from the MrSunday</h2>";   
   }
 }
 
@@ -619,7 +618,7 @@ function onSearchResponsePainting(response) { // Painting
     var element = document.getElementById("paintingplayer3");   // need to make it remove all the players
     element.parentNode.removeChild(element);  
 
-    document.getElementById("paintingtitle").innerHTML = "<h2>No results from Painting</h2>";   
+    document.getElementById("nopaintingtitle").innerHTML = "<h2>No results from Painting</h2>";   
   }
 }
 
@@ -672,7 +671,7 @@ function onSearchResponseGoodBadFlicks(response) { // the goodbad
     var element = document.getElementById("goodbadplayer3");   // need to make it remove all the players
     element.parentNode.removeChild(element);  
     
-    document.getElementById("goodbadtitle").innerHTML = "<h2>No results from GoodBadFlicks</h2>";   
+    document.getElementById("nogoodbadtitle").innerHTML = "<h2>No results from GoodBadFlicks</h2>";   
   }
 }
 
