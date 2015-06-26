@@ -1,5 +1,9 @@
-var playnum = 0;
+var stPlaynum = 0;
+var joPlaynum = 0;
 console.log("I made playnum equal "+playnum);
+var playnum = 0; // delete after everyone has one
+
+
 // Your use of the YouTube API must comply with the Terms of Service:
 // https://developers.google.com/youtube/terms
 // Helper function to display JavaScript value on HTML page.
@@ -36,15 +40,15 @@ function verifyorder() {
   // and invoke onSearchRepsonse() with the response.
   request.execute(onSearchResponsestucky);
 
-  // var request = gapi.client.youtube.search.list({ // search 2 for joe
-  //   part: 'snippet', 
-  //   channelId: 'UCsgv2QHkT2ljEixyulzOnUQ' ,  // JOE
-  //   q: order ,
-  //   maxResults: 3
-  // });
-  // // Send the request to the API server,
-  // // and invoke onSearchRepsonse() with the response.
-  // request.execute(onSearchResponseJoe);
+  var request = gapi.client.youtube.search.list({ // search 2 for joe
+    part: 'snippet', 
+    channelId: 'UCsgv2QHkT2ljEixyulzOnUQ' ,  // JOE
+    q: order ,
+    maxResults: 3
+  });
+  // Send the request to the API server,
+  // and invoke onSearchRepsonse() with the response.
+  request.execute(onSearchResponseJoe);
 
 
   // var request = gapi.client.youtube.search.list({ // search 3 for kermode and mayo
@@ -129,18 +133,185 @@ function verifyorder() {
   // // and invoke onSearchRepsonse() with the response.
   // request.execute(onSearchResponseGuardian);
 
+  //  var request = gapi.client.youtube.search.list({ // search 12 for wisecrack
+  //   part: 'snippet', 
+  //   channelId: 'UC6-ymYjG0SU0jUWnWh9ZzEQ' ,  // wisecrack
+  //   q: order ,
+  //   maxResults: 3
+  // });
+  // // Send the request to the API server,
+  // // and invoke onSearchRepsonse() with the response.
+  // request.execute(onSearchResponsewisecrack);
+
 }
 
-// the remaker UC1Ra1PtRYMwv2DO7DfXA9Tw
-// cinefix UCVtL1edhT8qqY-j2JIndMzg
-// couch tomato UCOZcxtwy_YYe7KKky8DCLGQ
-// every frame a painting UCjFqcJQXGZ6T6sxyFB-5i6A
-// good bad flicks UCtKttDTGqEbBrC7jDN2_axQ
-// mr Sunday movies UCkDSAQ_5-yx5hmuvUcsJL7A
-// the guardian film show UC4OxS-w63-g00lI7nGkzpcw
 
 // Called automatically with the response of the YouTube API request.
 function onSearchResponsestucky(response) { // stuckman
+
+  showResponse(response); 
+  var vnumber = response.pageInfo.totalResults;
+  if(vnumber > capnum){
+    vnumber = capnum;
+  }
+
+  if(stPlaynum > 0){
+    do {
+      stPlaynum --;
+      console.log("stPlaynum countdown "+stPlaynum);
+      renum = stPlaynum +1;
+      console.log("renum countdown "+renum);
+      var element = document.getElementById("stuckyplayer"+renum);   // need to make it remove all the players
+      element.parentNode.removeChild(element); 
+    }
+    while(stPlaynum > 0);
+  }
+
+  if(vnumber > 0){
+    // I'm going to add up to three players
+    document.getElementById("nostuckytitle").innerHTML = "<h2></h2>";   
+    document.getElementById("stuckytitle").innerHTML = "<h2>Stuckman results</h2>";
+    var str = JSON.stringify(response.result);
+    $('#search-container').html('<pre>' + str + '</pre>');
+
+    do {
+      var vindex = vnumber-1;
+      var para = document.createElement("div");  
+      para.setAttribute("id", "stuckyplayer"+vnumber);
+      document.getElementById("stDIV").appendChild(para);
+
+      //Make the up to five vids        
+      vid = response.items[vindex].id.videoId;  
+      player = new YT.Player('stuckyplayer'+vnumber, {
+        height: 'auto',
+        width: 'auto'
+      });
+
+      stPlaynum++;
+      console.log("stPlaynum in the add loop "+stPlaynum);
+      document.getElementById("stuckyplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
+      //incement down the vnumber
+      vnumber --;
+    }
+    while(vnumber > 0); // the cap number is more then none    
+  }
+  else{
+      document.getElementById("nostuckytitle").innerHTML = "<h2>No results From Stuckman</h2>";   
+      document.getElementById("stuckytitle").innerHTML = "<h2></h2>";
+  }
+}
+
+// Called automatically with the response of the YouTube API request.
+function onSearchResponseJoe(response) { // a joe
+
+  showResponse(response); 
+  var vnumber = response.pageInfo.totalResults;
+  if(vnumber > capnum){
+    vnumber = capnum;
+  }
+
+  if(joPlaynum > 0){
+    do {
+      joPlaynum --;
+      console.log("joPlaynum countdown "+joPlaynum);
+      renum = joPlaynum +1;
+      console.log("renum countdown "+renum);
+      var element = document.getElementById("joeyplayer"+renum);   // need to make it remove all the players
+      element.parentNode.removeChild(element); 
+    }
+    while(joPlaynum > 0);
+  }
+
+  if(vnumber > 0){
+    // I'm going to add up to three players
+    document.getElementById("nojoeytitle").innerHTML = "<h2></h2>";   
+    document.getElementById("joeytitle").innerHTML = "<h2>Joe results</h2>";
+    var str = JSON.stringify(response.result);
+    $('#search-container').html('<pre>' + str + '</pre>');
+
+    do {
+      var vindex = vnumber-1;
+      var para = document.createElement("div");  
+      para.setAttribute("id", "joeyplayer"+vnumber);
+      document.getElementById("joDIV").appendChild(para);
+
+      //Make the up to five vids        
+      vid = response.items[vindex].id.videoId;  
+      player = new YT.Player('joeyplayer'+vnumber, {
+        height: 'auto',
+        width: 'auto'
+      });
+
+      joPlaynum++;
+      console.log("joPlaynum in the add loop "+joPlaynum);
+      document.getElementById("joeyplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
+      //incement down the vnumber
+      vnumber --;
+    }
+    while(vnumber > 0); // the cap number is more then none    
+  }
+  else{
+      document.getElementById("nojoeytitle").innerHTML = "<h2>No results From Joe </h2>"; 
+      document.getElementById("joeytitle").innerHTML = "<h2></h2>";  
+  }
+}
+
+// Called automatically with the response of the YouTube API request.
+function onSearchResponseKermode(response) { // kermode 
+  
+  showResponse(response); 
+  var vnumber = response.pageInfo.totalResults;
+  if(vnumber > capnum){
+    vnumber = capnum;
+  }
+
+  if(playnum > 0){
+    do {
+      playnum --;
+      console.log("playnum countdown "+playnum);
+      renum = playnum +1;
+      console.log("renum countdown "+renum);
+      var element = document.getElementById("kermodeplayer"+renum);   // need to make it remove all the players
+      element.parentNode.removeChild(element); 
+    }
+    while(playnum > 0);
+  }
+
+  if(vnumber > 0){
+    // I'm going to add up to three players
+    document.getElementById("nokermodetitle").innerHTML = "<h2></h2>";   
+    document.getElementById("kermodetitle").innerHTML = "<h2>kermode results</h2>";
+    var str = JSON.stringify(response.result);
+    $('#search-container').html('<pre>' + str + '</pre>');
+
+    do {
+      var vindex = vnumber-1;
+      var para = document.createElement("div");  
+      para.setAttribute("id", "kermodeplayer"+vnumber);
+      document.getElementById("stDIV").appendChild(para);
+
+      //Make the up to five vids        
+      vid = response.items[vindex].id.videoId;  
+      player = new YT.Player('kermodeplayer'+vnumber, {
+        height: 'auto',
+        width: 'auto'
+      });
+
+      playnum++;
+      console.log("playnum in the add loop "+playnum);
+      document.getElementById("kermodeplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
+      //incement down the vnumber
+      vnumber --;
+    }
+    while(vnumber > 0); // the cap number is more then none    
+  }
+  else{
+      document.getElementById("nokermodetitle").innerHTML = "<h2>No results From kermode</h2>";   
+  } 
+}
+
+// Called automatically with the response of the YouTube API request.
+function onSearchResponseEscapist(response) { // the escapist
 
   showResponse(response); 
   var vnumber = response.pageInfo.totalResults;
@@ -154,7 +325,7 @@ function onSearchResponsestucky(response) { // stuckman
       console.log("playnum countdown "+playnum);
       renum = playnum +1;
       console.log("renum countdown "+renum);
-      var element = document.getElementById("stuckytplayer"+renum);   // need to make it remove all the players
+      var element = document.getElementById("escapistplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
     while(playnum > 0);
@@ -162,193 +333,34 @@ function onSearchResponsestucky(response) { // stuckman
 
   if(vnumber > 0){
     // I'm going to add up to three players
-    document.getElementById("nostuckytitle").innerHTML = "<h2></h2>";   
-    document.getElementById("stuckytitle").innerHTML = "<h2>Stuckman results</h2>";
+    document.getElementById("noescapisttitle").innerHTML = "<h2></h2>";   
+    document.getElementById("escapisttitle").innerHTML = "<h2>escapist results</h2>";
     var str = JSON.stringify(response.result);
     $('#search-container').html('<pre>' + str + '</pre>');
 
     do {
       var vindex = vnumber-1;
       var para = document.createElement("div");  
-      para.setAttribute("id", "stuckytplayer"+vnumber);
+      para.setAttribute("id", "escapistplayer"+vnumber);
       document.getElementById("stDIV").appendChild(para);
 
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
-      player = new YT.Player('stuckytplayer'+vnumber, {
+      player = new YT.Player('escapistplayer'+vnumber, {
         height: 'auto',
         width: 'auto'
       });
 
       playnum++;
       console.log("playnum in the add loop "+playnum);
-      document.getElementById("stuckytplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
-      //incement down the vnumber
-      vnumber --;
-    }
-    while(vnumber > 0); // the cap number is more then none    
-  }
-  else{
-      document.getElementById("nostuckytitle").innerHTML = "<h2>No results From Stuckman</h2>";   
-  }
-}
-
-// Called automatically with the response of the YouTube API request.
-function onSearchResponseJoe(response) { // a joe
-
-  showResponse(response); 
-  var vnumber = response.pageInfo.totalResults;
-  if(vnumber > capnum){
-    vnumber = capnum;
-  }
-
-  if(vnumber > 0){
-    document.getElementById("joeytitle").innerHTML = "<h2>Joe results</h2>";  
-    var str = JSON.stringify(response.result);
-    $('#search-container').html('<pre>' + str + '</pre>');
-
-    do {
-      var vindex = vnumber-1;
-
-      var para = document.createElement("div");  
-      para.setAttribute("id", "joeytplayer"+vnumber);
-      document.getElementById("joDIV").appendChild(para);
-
-      //Make the up to five vids        
-      vid = response.items[vindex].id.videoId;  
-
-      player = new YT.Player('joeytplayer'+vnumber, {
-        height: 'auto',
-        width: 'auto'
-      });
-
-      document.getElementById("joeytplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
-      //incement down the vnumber
-      vnumber --;
-    }
-    while(vnumber > 0); // the cap number is more then none    
-  }
-
-  else{
-
-    var element = document.getElementById("joeytplayer1");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("joeytplayer2");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("joeytplayer3");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    document.getElementById("nojoeytitle").innerHTML = "<h2>No results from Angry Joe</h2>";   
-  }
-}
-
-// Called automatically with the response of the YouTube API request.
-function onSearchResponseKermode(response) { // kermode 
-
-  showResponse(response); 
-  var vnumber = response.pageInfo.totalResults;  
-   
-  if(vnumber > capnum){
-    vnumber = capnum;
-  }
-  
- if(vnumber > 0){
-   document.getElementById("kermodetitle").innerHTML = "<h2>kermode results</h2>";  
-   var str = JSON.stringify(response.result);
-   $('#search-container').html('<pre>' + str + '</pre>');
-
-    do {
-      var vindex = vnumber-1;
-      
-      var para = document.createElement("div");  
-      para.setAttribute("id", "kermodeplayer"+vnumber);
-      document.getElementById("keDIV").appendChild(para);
-
-      //Make the up to five vids        
-      vid = response.items[vindex].id.videoId;  
-
-      player = new YT.Player('kermodeplayer'+vnumber, {
-        height: 'auto',
-        width: 'auto'
-      });
-
-      document.getElementById("kermodeplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
-     
-      //incement down the vnumber
-      vnumber --;
-    }
-    while(vnumber > 0); // the cap number is more then none    
-  }
-
-  else{
-
-    var element = document.getElementById("kermodeplayer1");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("kermodeplayer2");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("kermodeplayer3");   // need to make it remove all the players
-    element.parentNode.removeChild(element);  
-
-    document.getElementById("nokermodetitle").innerHTML = "<h2>No results from kermode</h2>";   
-  }
-}
-
-// Called automatically with the response of the YouTube API request.
-function onSearchResponseEscapist(response) { // the escapist
-
-  showResponse(response); 
-  var vnumber = response.pageInfo.totalResults;
-  
-
-  if(vnumber > capnum){
-    vnumber = capnum;
-  }
-
-  
-  if(vnumber > 0){
-
-    document.getElementById("escapisttitle").innerHTML = "<h2>The Escapist results</h2>";  
-    var str = JSON.stringify(response.result);
-    $('#search-container').html('<pre>' + str + '</pre>');
-
-    do {
-      var vindex = vnumber-1;
-
-      var para = document.createElement("div");  
-      para.setAttribute("id", "escapistplayer"+vnumber);
-      document.getElementById("esDIV").appendChild(para);
-
-      //Make the up to five vids        
-      vid = response.items[vindex].id.videoId;  
-
-      player = new YT.Player('escapistplayer'+vnumber, {
-        height: 'auto',
-        width: 'auto'
-      });
-
       document.getElementById("escapistplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
     }
     while(vnumber > 0); // the cap number is more then none    
-    }
-
+  }
   else{
-
-    var element = document.getElementById("escapistplayer1");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("escapistplayer2");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("escapistplayer3");   // need to make it remove all the players
-    element.parentNode.removeChild(element);  
-
-    document.getElementById("noescapisttitle").innerHTML = "<h2>No results from the escapist</h2>";   
+      document.getElementById("noescapisttitle").innerHTML = "<h2>No results From escapist</h2>";   
   }
 }
 
@@ -357,52 +369,52 @@ function onSearchResponseGuardian(response) { // the Guardian
 
   showResponse(response); 
   var vnumber = response.pageInfo.totalResults;
-
   if(vnumber > capnum){
     vnumber = capnum;
   }
 
-  
-  if(vnumber > 0){
+  if(playnum > 0){
+    do {
+      playnum --;
+      console.log("playnum countdown "+playnum);
+      renum = playnum +1;
+      console.log("renum countdown "+renum);
+      var element = document.getElementById("guardianplayer"+renum);   // need to make it remove all the players
+      element.parentNode.removeChild(element); 
+    }
+    while(playnum > 0);
+  }
 
-    document.getElementById("guardiantitle").innerHTML = "<h2>The Guardian results</h2>";  
+  if(vnumber > 0){
+    // I'm going to add up to three players
+    document.getElementById("noguardiantitle").innerHTML = "<h2></h2>";   
+    document.getElementById("guardiantitle").innerHTML = "<h2>guardian results</h2>";
     var str = JSON.stringify(response.result);
     $('#search-container').html('<pre>' + str + '</pre>');
 
     do {
       var vindex = vnumber-1;
-
       var para = document.createElement("div");  
       para.setAttribute("id", "guardianplayer"+vnumber);
       document.getElementById("guDIV").appendChild(para);
 
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
-
       player = new YT.Player('guardianplayer'+vnumber, {
         height: 'auto',
         width: 'auto'
       });
 
+      playnum++;
+      console.log("playnum in the add loop "+playnum);
       document.getElementById("guardianplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
     }
     while(vnumber > 0); // the cap number is more then none    
   }
-
   else{
-
-    var element = document.getElementById("guardianplayer1");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("guardianplayer2");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("guardianplayer3");   // need to make it remove all the players
-    element.parentNode.removeChild(element);  
-
-    document.getElementById("noguardiantitle").innerHTML = "<h2>No results from the guardian</h2>";   
+      document.getElementById("noguardiantitle").innerHTML = "<h2>No results From guardian</h2>";   
   }
 }
 
@@ -410,53 +422,53 @@ function onSearchResponseGuardian(response) { // the Guardian
 function onSearchResponseRemaker(response) { // the remaker
 
   showResponse(response); 
-  var vnumber = response.pageInfo.totalResults; 
-
+  var vnumber = response.pageInfo.totalResults;
   if(vnumber > capnum){
     vnumber = capnum;
   }
 
-  
-  if(vnumber > 0){
+  if(playnum > 0){
+    do {
+      playnum --;
+      console.log("playnum countdown "+playnum);
+      renum = playnum +1;
+      console.log("renum countdown "+renum);
+      var element = document.getElementById("remakerplayer"+renum);   // need to make it remove all the players
+      element.parentNode.removeChild(element); 
+    }
+    while(playnum > 0);
+  }
 
-    document.getElementById("remakertitle").innerHTML = "<h2>The Remaker results</h2>";  
+  if(vnumber > 0){
+    // I'm going to add up to three players
+    document.getElementById("noremakertitle").innerHTML = "<h2></h2>";   
+    document.getElementById("remakertitle").innerHTML = "<h2>remaker results</h2>";
     var str = JSON.stringify(response.result);
     $('#search-container').html('<pre>' + str + '</pre>');
 
     do {
       var vindex = vnumber-1;
-
       var para = document.createElement("div");  
       para.setAttribute("id", "remakerplayer"+vnumber);
       document.getElementById("reDIV").appendChild(para);
 
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
-
       player = new YT.Player('remakerplayer'+vnumber, {
         height: 'auto',
         width: 'auto'
       });
 
+      playnum++;
+      console.log("playnum in the add loop "+playnum);
       document.getElementById("remakerplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
     }
     while(vnumber > 0); // the cap number is more then none    
   }
-
   else{
-
-    var element = document.getElementById("remakerplayer1");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("remakerplayer2");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("remakerplayer3");   // need to make it remove all the players
-    element.parentNode.removeChild(element);  
-
-    document.getElementById("noremakertitle").innerHTML = "<h2>No results from the remaker</h2>";   
+      document.getElementById("noremakertitle").innerHTML = "<h2>No results From remaker</h2>";   
   }
 }
 
@@ -465,53 +477,52 @@ function onSearchResponseCinefix(response) { // Cinefix
 
   showResponse(response); 
   var vnumber = response.pageInfo.totalResults;
-  
-
   if(vnumber > capnum){
     vnumber = capnum;
   }
-  
-  if(vnumber > 0){
 
-    document.getElementById("cinefixtitle").innerHTML = "<h2>Cinefix results</h2>";  
+  if(playnum > 0){
+    do {
+      playnum --;
+      console.log("playnum countdown "+playnum);
+      renum = playnum +1;
+      console.log("renum countdown "+renum);
+      var element = document.getElementById("cinefixplayer"+renum);   // need to make it remove all the players
+      element.parentNode.removeChild(element); 
+    }
+    while(playnum > 0);
+  }
+
+  if(vnumber > 0){
+    // I'm going to add up to three players
+    document.getElementById("nocinefixtitle").innerHTML = "<h2></h2>";   
+    document.getElementById("cinefixtitle").innerHTML = "<h2>cinefix results</h2>";
     var str = JSON.stringify(response.result);
     $('#search-container').html('<pre>' + str + '</pre>');
 
     do {
       var vindex = vnumber-1;
-
       var para = document.createElement("div");  
       para.setAttribute("id", "cinefixplayer"+vnumber);
       document.getElementById("ciDIV").appendChild(para);
 
-
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
-
       player = new YT.Player('cinefixplayer'+vnumber, {
         height: 'auto',
         width: 'auto'
       });
 
+      playnum++;
+      console.log("playnum in the add loop "+playnum);
       document.getElementById("cinefixplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
     }
     while(vnumber > 0); // the cap number is more then none    
   }
-
   else{
-
-    var element = document.getElementById("cinefixplayer1");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("cinefixplayer2");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("cinefixplayer3");   // need to make it remove all the players
-    element.parentNode.removeChild(element);  
-
-    document.getElementById("nocinefixtitle").innerHTML = "<h2>No results from Cinefix</h2>";   
+      document.getElementById("nocinefixtitle").innerHTML = "<h2>No results From cinefix</h2>";   
   }
 }
 
@@ -519,53 +530,53 @@ function onSearchResponseCinefix(response) { // Cinefix
 function onSearchResponseMrSundayMovies(response) { // MrSunday
 
   showResponse(response); 
-  var vnumber = response.pageInfo.totalResults;  
-
+  var vnumber = response.pageInfo.totalResults;
   if(vnumber > capnum){
     vnumber = capnum;
   }
-  
-  if(vnumber > 0){
 
-    document.getElementById("mrsundaytitle").innerHTML = "<h2>MrSunday results</h2>";  
+  if(playnum > 0){
+    do {
+      playnum --;
+      console.log("playnum countdown "+playnum);
+      renum = playnum +1;
+      console.log("renum countdown "+renum);
+      var element = document.getElementById("mrsundayplayer"+renum);   // need to make it remove all the players
+      element.parentNode.removeChild(element); 
+    }
+    while(playnum > 0);
+  }
+
+  if(vnumber > 0){
+    // I'm going to add up to three players
+    document.getElementById("nostuckytitle").innerHTML = "<h2></h2>";   
+    document.getElementById("mrsundaytitle").innerHTML = "<h2>mrsunday results</h2>";
     var str = JSON.stringify(response.result);
     $('#search-container').html('<pre>' + str + '</pre>');
 
     do {
       var vindex = vnumber-1;
-
       var para = document.createElement("div");  
       para.setAttribute("id", "mrsundayplayer"+vnumber);
       document.getElementById("mrDIV").appendChild(para);
 
-
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
-
       player = new YT.Player('mrsundayplayer'+vnumber, {
         height: 'auto',
         width: 'auto'
       });
 
+      playnum++;
+      console.log("playnum in the add loop "+playnum);
       document.getElementById("mrsundayplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
     }
     while(vnumber > 0); // the cap number is more then none    
   }
-
   else{
-
-    var element = document.getElementById("mrsundayplayer1");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("mrsundayplayer2");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("mrsundayplayer3");   // need to make it remove all the players
-    element.parentNode.removeChild(element);  
-
-    document.getElementById("nomrsundaytitle").innerHTML = "<h2>No results from the MrSunday</h2>";   
+      document.getElementById("nomrsundaytitle").innerHTML = "<h2>No results From mrsunday</h2>";   
   }
 }
 
@@ -573,52 +584,53 @@ function onSearchResponseMrSundayMovies(response) { // MrSunday
 function onSearchResponsePainting(response) { // Painting
 
   showResponse(response); 
-  var vnumber = response.pageInfo.totalResults;  
-
+  var vnumber = response.pageInfo.totalResults;
   if(vnumber > capnum){
     vnumber = capnum;
   }
-  
-  if(vnumber > 0){
 
-    document.getElementById("paintingtitle").innerHTML = "<h2>Painting results</h2>"; 
+  if(playnum > 0){
+    do {
+      playnum --;
+      console.log("playnum countdown "+playnum);
+      renum = playnum +1;
+      console.log("renum countdown "+renum);
+      var element = document.getElementById("paintingplayer"+renum);   // need to make it remove all the players
+      element.parentNode.removeChild(element); 
+    }
+    while(playnum > 0);
+  }
+
+  if(vnumber > 0){
+    // I'm going to add up to three players
+    document.getElementById("nopaintingtitle").innerHTML = "<h2></h2>";   
+    document.getElementById("paintingtitle").innerHTML = "<h2>painting results</h2>";
     var str = JSON.stringify(response.result);
     $('#search-container').html('<pre>' + str + '</pre>');
 
     do {
       var vindex = vnumber-1;
-
       var para = document.createElement("div");  
       para.setAttribute("id", "paintingplayer"+vnumber);
       document.getElementById("paDIV").appendChild(para);
 
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
-
       player = new YT.Player('paintingplayer'+vnumber, {
         height: 'auto',
         width: 'auto'
       });
 
+      playnum++;
+      console.log("playnum in the add loop "+playnum);
       document.getElementById("paintingplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
     }
-
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
-
-    var element = document.getElementById("paintingplayer1");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("paintingplayer2");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
-
-    var element = document.getElementById("paintingplayer3");   // need to make it remove all the players
-    element.parentNode.removeChild(element);  
-
-    document.getElementById("nopaintingtitle").innerHTML = "<h2>No results from Painting</h2>";   
+      document.getElementById("nopaintingtitle").innerHTML = "<h2>No results From painting</h2>";   
   }
 }
 
@@ -626,52 +638,107 @@ function onSearchResponsePainting(response) { // Painting
 function onSearchResponseGoodBadFlicks(response) { // the goodbad
 
   showResponse(response); 
-  var vnumber = response.pageInfo.totalResults;  
-
+  var vnumber = response.pageInfo.totalResults;
   if(vnumber > capnum){
     vnumber = capnum;
   }
-  
-  if(vnumber > 0){
 
-    document.getElementById("goodbadtitle").innerHTML = "<h2>GoodBadFlicks results</h2>"; 
+  if(playnum > 0){
+    do {
+      playnum --;
+      console.log("playnum countdown "+playnum);
+      renum = playnum +1;
+      console.log("renum countdown "+renum);
+      var element = document.getElementById("goodbadplayer"+renum);   // need to make it remove all the players
+      element.parentNode.removeChild(element); 
+    }
+    while(playnum > 0);
+  }
+
+  if(vnumber > 0){
+    // I'm going to add up to three players
+    document.getElementById("nogoodbadtitle").innerHTML = "<h2></h2>";   
+    document.getElementById("goodbadtitle").innerHTML = "<h2>goodbad results</h2>";
     var str = JSON.stringify(response.result);
     $('#search-container').html('<pre>' + str + '</pre>');
 
     do {
       var vindex = vnumber-1;
-
       var para = document.createElement("div");  
       para.setAttribute("id", "goodbadplayer"+vnumber);
       document.getElementById("goDIV").appendChild(para);
 
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
-
       player = new YT.Player('goodbadplayer'+vnumber, {
         height: 'auto',
         width: 'auto'
       });
 
+      playnum++;
+      console.log("playnum in the add loop "+playnum);
       document.getElementById("goodbadplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
     }
     while(vnumber > 0); // the cap number is more then none    
   }
-
   else{
+      document.getElementById("nogoodbadtitle").innerHTML = "<h2>No results From goodbad</h2>";   
+  }
+}
 
-    var element = document.getElementById("goodbadplayer1");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
+// Called automatically with the response of the YouTube API request.
+function onSearchResponsewisecrack(response) { //  wisecrack
 
-    var element = document.getElementById("goodbadplayer2");   // need to make it remove all the players
-    element.parentNode.removeChild(element);    
+  showResponse(response); 
+  var vnumber = response.pageInfo.totalResults;
+  if(vnumber > capnum){
+    vnumber = capnum;
+  }
 
-    var element = document.getElementById("goodbadplayer3");   // need to make it remove all the players
-    element.parentNode.removeChild(element);  
-    
-    document.getElementById("nogoodbadtitle").innerHTML = "<h2>No results from GoodBadFlicks</h2>";   
+  if(playnum > 0){
+    do {
+      playnum --;
+      console.log("playnum countdown "+playnum);
+      renum = playnum +1;
+      console.log("renum countdown "+renum);
+      var element = document.getElementById("stuckyplayer"+renum);   // need to make it remove all the players
+      element.parentNode.removeChild(element); 
+    }
+    while(playnum > 0);
+  }
+
+  if(vnumber > 0){
+    // I'm going to add up to three players
+    document.getElementById("nowisecracktitle").innerHTML = "<h2></h2>";   
+    document.getElementById("wisecracktitle").innerHTML = "<h2>wisecrack results</h2>";
+    var str = JSON.stringify(response.result);
+    $('#search-container').html('<pre>' + str + '</pre>');
+
+    do {
+      var vindex = vnumber-1;
+      var para = document.createElement("div");  
+      para.setAttribute("id", "wisecrackplayer"+vnumber);
+      document.getElementById("wiDIV").appendChild(para);
+
+      //Make the up to five vids        
+      vid = response.items[vindex].id.videoId;  
+      player = new YT.Player('wisecrackplayer'+vnumber, {
+        height: 'auto',
+        width: 'auto'
+      });
+
+      playnum++;
+      console.log("playnum in the add loop "+playnum);
+      document.getElementById("wisecrackplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
+      //incement down the vnumber
+      vnumber --;
+    }
+    while(vnumber > 0); // the cap number is more then none    
+  }
+  else{
+      document.getElementById("nowisecracktitle").innerHTML = "<h2>No results From wisecrack</h2>";   
   }
 }
 
