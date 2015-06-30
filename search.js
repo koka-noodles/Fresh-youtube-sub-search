@@ -1,5 +1,14 @@
 var stPlaynum = 0;
 var joPlaynum = 0;
+var kePlaynum = 0;
+var esPlaynum = 0;
+var guPlaynum = 0;
+var rePlaynum = 0;
+var ciPlaynum = 0;
+var mrPlaynum = 0;
+var paPlaynum = 0;
+var goPlaynum = 0;
+var wiPlaynum = 0;
 console.log("I made playnum equal "+playnum);
 var playnum = 0; // delete after everyone has one
 
@@ -50,28 +59,25 @@ function verifyorder() {
   // and invoke onSearchRepsonse() with the response.
   request.execute(onSearchResponseJoe);
 
+  var request = gapi.client.youtube.search.list({ // search 3 for kermode and mayo
+    part: 'snippet', 
+    channelId: 'UCCxKPNMqjnqbxVEt1tyDUsA' ,  // kermode and mayo
+    q: order ,
+    maxResults: 3
+  });
+  // Send the request to the API server,
+  // and invoke onSearchRepsonse() with the response.
+  request.execute(onSearchResponseKermode); 
 
-  // var request = gapi.client.youtube.search.list({ // search 3 for kermode and mayo
-  //   part: 'snippet', 
-  //   channelId: 'UCCxKPNMqjnqbxVEt1tyDUsA' ,  // kermode and mayo
-  //   q: order ,
-  //   maxResults: 3
-  // });
-  // // Send the request to the API server,
-  // // and invoke onSearchRepsonse() with the response.
-  // request.execute(onSearchResponseKermode); 
-
-  // var request = gapi.client.youtube.search.list({ // search 4 for the escapist
-  //   part: 'snippet', 
-  //   channelId: 'UCADQiLMJMO3HUMvePgscTMg' ,  // the escapist
-  //   q: order ,
-  //   maxResults: 3
-  // });
-  // // Send the request to the API server,
-  // // and invoke onSearchRepsonse() with the response.
-  // request.execute(onSearchResponseEscapist);
-
-
+  var request = gapi.client.youtube.search.list({ // search 4 for the escapist
+    part: 'snippet', 
+    channelId: 'UCADQiLMJMO3HUMvePgscTMg' ,  // the escapist
+    q: order ,
+    maxResults: 3
+  });
+  // Send the request to the API server,
+  // and invoke onSearchRepsonse() with the response.
+  request.execute(onSearchResponseEscapist);
 
   // var request = gapi.client.youtube.search.list({ // search 5 for the remaker
   //   part: 'snippet', 
@@ -198,6 +204,7 @@ function onSearchResponsestucky(response) { // stuckman
   else{
       document.getElementById("nostuckytitle").innerHTML = "<h2>No results From Stuckman</h2>";   
       document.getElementById("stuckytitle").innerHTML = "<h2></h2>";
+     // document.getElementById("stcol").style.cssText +=';'+ "width: 0%; height: 0%; padding: 0px; min-height: 0px; min-width: 0px;  border: 0px;";
   }
 }
 
@@ -265,19 +272,22 @@ function onSearchResponseKermode(response) { // kermode
     vnumber = capnum;
   }
 
-  if(playnum > 0){
+  if(kePlaynum > 0){
     do {
-      playnum --;
-      console.log("playnum countdown "+playnum);
-      renum = playnum +1;
+      kePlaynum --;
+      console.log("kePlaynum countdown "+kePlaynum);
+      renum = kePlaynum +1;
       console.log("renum countdown "+renum);
       var element = document.getElementById("kermodeplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
-    while(playnum > 0);
+    while(kePlaynum > 0);
   }
 
   if(vnumber > 0){
+
+    document.getElementById("kecol").className = document.getElementById("kecol").className.replace( /(?:^|\s)empty(?!\S)/g , '' )
+
     // I'm going to add up to three players
     document.getElementById("nokermodetitle").innerHTML = "<h2></h2>";   
     document.getElementById("kermodetitle").innerHTML = "<h2>kermode results</h2>";
@@ -288,7 +298,7 @@ function onSearchResponseKermode(response) { // kermode
       var vindex = vnumber-1;
       var para = document.createElement("div");  
       para.setAttribute("id", "kermodeplayer"+vnumber);
-      document.getElementById("stDIV").appendChild(para);
+      document.getElementById("keDIV").appendChild(para);
 
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
@@ -297,8 +307,8 @@ function onSearchResponseKermode(response) { // kermode
         width: 'auto'
       });
 
-      playnum++;
-      console.log("playnum in the add loop "+playnum);
+      kePlaynum++;
+      console.log("kePlaynum in the add loop "+kePlaynum);
       document.getElementById("kermodeplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -308,6 +318,7 @@ function onSearchResponseKermode(response) { // kermode
   else{
       document.getElementById("nokermodetitle").innerHTML = "<h2>No results From kermode</h2>";   
       document.getElementById("kermodetitle").innerHTML = "<h2></h2>";
+      document.getElementById("kecol").className += " empty";
   } 
 }
 
@@ -320,16 +331,16 @@ function onSearchResponseEscapist(response) { // the escapist
     vnumber = capnum;
   }
 
-  if(playnum > 0){
+  if(esPlaynum > 0){
     do {
-      playnum --;
-      console.log("playnum countdown "+playnum);
-      renum = playnum +1;
+      esPlaynum --;
+      console.log("esPlaynum countdown "+esPlaynum);
+      renum = esPlaynum +1;
       console.log("renum countdown "+renum);
       var element = document.getElementById("escapistplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
-    while(playnum > 0);
+    while(esPlaynum > 0);
   }
 
   if(vnumber > 0){
@@ -343,7 +354,7 @@ function onSearchResponseEscapist(response) { // the escapist
       var vindex = vnumber-1;
       var para = document.createElement("div");  
       para.setAttribute("id", "escapistplayer"+vnumber);
-      document.getElementById("stDIV").appendChild(para);
+      document.getElementById("esDIV").appendChild(para);
 
       //Make the up to five vids        
       vid = response.items[vindex].id.videoId;  
@@ -352,8 +363,8 @@ function onSearchResponseEscapist(response) { // the escapist
         width: 'auto'
       });
 
-      playnum++;
-      console.log("playnum in the add loop "+playnum);
+      esPlaynum++;
+      console.log("esPlaynum in the add loop "+esPlaynum);
       document.getElementById("escapistplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -375,16 +386,16 @@ function onSearchResponseGuardian(response) { // the Guardian
     vnumber = capnum;
   }
 
-  if(playnum > 0){
+  if(guPlaynum > 0){
     do {
-      playnum --;
-      console.log("playnum countdown "+playnum);
-      renum = playnum +1;
+      guPlaynum --;
+      console.log("guPlaynum countdown "+guPlaynum);
+      renum = guPlaynum +1;
       console.log("renum countdown "+renum);
       var element = document.getElementById("guardianplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
-    while(playnum > 0);
+    while(guPlaynum > 0);
   }
 
   if(vnumber > 0){
@@ -407,8 +418,8 @@ function onSearchResponseGuardian(response) { // the Guardian
         width: 'auto'
       });
 
-      playnum++;
-      console.log("playnum in the add loop "+playnum);
+      guPlaynum++;
+      console.log("guPlaynum in the add loop "+guPlaynum);
       document.getElementById("guardianplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -430,16 +441,16 @@ function onSearchResponseRemaker(response) { // the remaker
     vnumber = capnum;
   }
 
-  if(playnum > 0){
+  if(rePlaynum > 0){
     do {
-      playnum --;
-      console.log("playnum countdown "+playnum);
-      renum = playnum +1;
+      rePlaynum --;
+      console.log("rePlaynum countdown "+rePlaynum);
+      renum = rePlaynum +1;
       console.log("renum countdown "+renum);
       var element = document.getElementById("remakerplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
-    while(playnum > 0);
+    while(rePlaynum > 0);
   }
 
   if(vnumber > 0){
@@ -462,8 +473,8 @@ function onSearchResponseRemaker(response) { // the remaker
         width: 'auto'
       });
 
-      playnum++;
-      console.log("playnum in the add loop "+playnum);
+      rePlaynum++;
+      console.log("rePlaynum in the add loop "+rePlaynum);
       document.getElementById("remakerplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -485,16 +496,16 @@ function onSearchResponseCinefix(response) { // Cinefix
     vnumber = capnum;
   }
 
-  if(playnum > 0){
+  if(ciPlaynum > 0){
     do {
-      playnum --;
-      console.log("playnum countdown "+playnum);
-      renum = playnum +1;
+      ciPlaynum --;
+      console.log("ciPlaynum countdown "+ciPlaynum);
+      renum = ciPlaynum +1;
       console.log("renum countdown "+renum);
       var element = document.getElementById("cinefixplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
-    while(playnum > 0);
+    while(ciPlaynum > 0);
   }
 
   if(vnumber > 0){
@@ -517,8 +528,8 @@ function onSearchResponseCinefix(response) { // Cinefix
         width: 'auto'
       });
 
-      playnum++;
-      console.log("playnum in the add loop "+playnum);
+      ciPlaynum++;
+      console.log("ciPlaynum in the add loop "+ciPlaynum);
       document.getElementById("cinefixplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -540,21 +551,21 @@ function onSearchResponseMrSundayMovies(response) { // MrSunday
     vnumber = capnum;
   }
 
-  if(playnum > 0){
+  if(mrPlaynum > 0){
     do {
-      playnum --;
-      console.log("playnum countdown "+playnum);
-      renum = playnum +1;
+      mrPlaynum --;
+      console.log("mrPlaynum countdown "+mrPlaynum);
+      renum = mrPlaynum +1;
       console.log("renum countdown "+renum);
       var element = document.getElementById("mrsundayplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
-    while(playnum > 0);
+    while(mrPlaynum > 0);
   }
 
   if(vnumber > 0){
     // I'm going to add up to three players
-    document.getElementById("nostuckytitle").innerHTML = "<h2></h2>";   
+    document.getElementById("nosundaytitle").innerHTML = "<h2></h2>";   
     document.getElementById("mrsundaytitle").innerHTML = "<h2>mrsunday results</h2>";
     var str = JSON.stringify(response.result);
     $('#search-container').html('<pre>' + str + '</pre>');
@@ -572,8 +583,8 @@ function onSearchResponseMrSundayMovies(response) { // MrSunday
         width: 'auto'
       });
 
-      playnum++;
-      console.log("playnum in the add loop "+playnum);
+      mrPlaynum++;
+      console.log("mrPlaynum in the add loop "+mrPlaynum);
       document.getElementById("mrsundayplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -595,16 +606,16 @@ function onSearchResponsePainting(response) { // Painting
     vnumber = capnum;
   }
 
-  if(playnum > 0){
+  if(paPlaynum > 0){
     do {
-      playnum --;
-      console.log("playnum countdown "+playnum);
-      renum = playnum +1;
+      paPlaynum --;
+      console.log("paPlaynum countdown "+paPlaynum);
+      renum = paPlaynum +1;
       console.log("renum countdown "+renum);
       var element = document.getElementById("paintingplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
-    while(playnum > 0);
+    while(paPlaynum > 0);
   }
 
   if(vnumber > 0){
@@ -627,8 +638,8 @@ function onSearchResponsePainting(response) { // Painting
         width: 'auto'
       });
 
-      playnum++;
-      console.log("playnum in the add loop "+playnum);
+      paPlaynum++;
+      console.log("paPlaynum in the add loop "+paPlaynum);
       document.getElementById("paintingplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -650,16 +661,16 @@ function onSearchResponseGoodBadFlicks(response) { // the goodbad
     vnumber = capnum;
   }
 
-  if(playnum > 0){
+  if(goPlaynum > 0){
     do {
-      playnum --;
-      console.log("playnum countdown "+playnum);
-      renum = playnum +1;
+      goPlaynum --;
+      console.log("goPlaynum countdown "+goPlaynum);
+      renum = goPlaynum +1;
       console.log("renum countdown "+renum);
       var element = document.getElementById("goodbadplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
-    while(playnum > 0);
+    while(goPlaynum > 0);
   }
 
   if(vnumber > 0){
@@ -682,8 +693,8 @@ function onSearchResponseGoodBadFlicks(response) { // the goodbad
         width: 'auto'
       });
 
-      playnum++;
-      console.log("playnum in the add loop "+playnum);
+      goPlaynum++;
+      console.log("goPlaynum in the add loop "+goPlaynum);
       document.getElementById("goodbadplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -705,16 +716,16 @@ function onSearchResponsewisecrack(response) { //  wisecrack
     vnumber = capnum;
   }
 
-  if(playnum > 0){
+  if(wiPlaynum > 0){
     do {
-      playnum --;
-      console.log("playnum countdown "+playnum);
-      renum = playnum +1;
+      wiPlaynum --;
+      console.log("wiPlaynum countdown "+wiPlaynum);
+      renum = wiPlaynum +1;
       console.log("renum countdown "+renum);
-      var element = document.getElementById("stuckyplayer"+renum);   // need to make it remove all the players
+      var element = document.getElementById("wisecrackplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
-    while(playnum > 0);
+    while(wiPlaynum > 0);
   }
 
   if(vnumber > 0){
@@ -737,8 +748,8 @@ function onSearchResponsewisecrack(response) { //  wisecrack
         width: 'auto'
       });
 
-      playnum++;
-      console.log("playnum in the add loop "+playnum);
+      wiPlaynum++;
+      console.log("wiPlaynum in the add loop "+wiPlaynum);
       document.getElementById("wisecrackplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
