@@ -7,7 +7,7 @@ body {
 }
 
 html { 
-  background: url(../images/deep.jpg) no-repeat center center fixed; 
+  background: url(../images/ibm.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -43,6 +43,7 @@ img.bg {
     padding-right: 20px;
     padding-bottom: 25px;
     padding-left: 20px;
+    text-align: center;
 }
 
 #results { 
@@ -69,8 +70,11 @@ img.bg {
 }
 
 h2{
-  color: white;
-  text-shadow: 2px 2px black;
+  color: #ffffff;
+  background-color:rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
 }
 
 .row {
@@ -79,7 +83,7 @@ h2{
 }
 
 .col-md-4 {
-    border-style: groove;
+    /*border-style: groove;*/
 }
 
 .empty {
