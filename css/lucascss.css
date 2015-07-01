@@ -7,7 +7,7 @@ body {
 }
 
 html { 
-  background: url(../images/ibm.jpg) no-repeat center center fixed; 
+  background: url(../images/comp.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -70,9 +70,9 @@ img.bg {
 }
 
 h2{
-  color: #ffffff;
-  background-color:rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
+  color: #AFFC41;
+  background-color:rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
