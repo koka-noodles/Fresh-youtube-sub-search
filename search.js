@@ -9,7 +9,6 @@ var mrPlaynum = 0;
 var paPlaynum = 0;
 var goPlaynum = 0;
 var wiPlaynum = 0;
-console.log("I made playnum equal "+playnum);
 var playnum = 0; // delete after everyone has one
 
 
@@ -164,9 +163,7 @@ function onSearchResponsestucky(response) { // stuckman
   if(stPlaynum > 0){
     do {
       stPlaynum --;
-      console.log("stPlaynum countdown "+stPlaynum);
       renum = stPlaynum +1;
-      console.log("renum countdown "+renum);
       var element = document.getElementById("stuckyplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
@@ -198,7 +195,6 @@ function onSearchResponsestucky(response) { // stuckman
       });
 
       stPlaynum++;
-      console.log("stPlaynum in the add loop "+stPlaynum);
       document.getElementById("stuckyplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -226,9 +222,7 @@ function onSearchResponseJoe(response) { // a joe
   if(joPlaynum > 0){
     do {
       joPlaynum --;
-      console.log("joPlaynum countdown "+joPlaynum);
       renum = joPlaynum +1;
-      console.log("renum countdown "+renum);
       var element = document.getElementById("joeyplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
@@ -260,7 +254,6 @@ function onSearchResponseJoe(response) { // a joe
       });
 
       joPlaynum++;
-      console.log("joPlaynum in the add loop "+joPlaynum);
       document.getElementById("joeyplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -287,9 +280,7 @@ function onSearchResponseKermode(response) { // kermode
   if(kePlaynum > 0){
     do {
       kePlaynum --;
-      console.log("kePlaynum countdown "+kePlaynum);
       renum = kePlaynum +1;
-      console.log("renum countdown "+renum);
       var element = document.getElementById("kermodeplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
@@ -320,7 +311,6 @@ function onSearchResponseKermode(response) { // kermode
       });
 
       kePlaynum++;
-      console.log("kePlaynum in the add loop "+kePlaynum);
       document.getElementById("kermodeplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -346,9 +336,7 @@ function onSearchResponseEscapist(response) { // the escapist
   if(esPlaynum > 0){
     do {
       esPlaynum --;
-      console.log("esPlaynum countdown "+esPlaynum);
       renum = esPlaynum +1;
-      console.log("renum countdown "+renum);
       var element = document.getElementById("escapistplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
@@ -379,7 +367,6 @@ function onSearchResponseEscapist(response) { // the escapist
       });
 
       esPlaynum++;
-      console.log("esPlaynum in the add loop "+esPlaynum);
       document.getElementById("escapistplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -406,9 +393,7 @@ function onSearchResponseGuardian(response) { // the Guardian
   if(guPlaynum > 0){
     do {
       guPlaynum --;
-      console.log("guPlaynum countdown "+guPlaynum);
       renum = guPlaynum +1;
-      console.log("renum countdown "+renum);
       var element = document.getElementById("guardianplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
@@ -440,7 +425,6 @@ function onSearchResponseGuardian(response) { // the Guardian
       });
 
       guPlaynum++;
-      console.log("guPlaynum in the add loop "+guPlaynum);
       document.getElementById("guardianplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -467,9 +451,7 @@ function onSearchResponseRemaker(response) { // the remaker
   if(rePlaynum > 0){
     do {
       rePlaynum --;
-      console.log("rePlaynum countdown "+rePlaynum);
       renum = rePlaynum +1;
-      console.log("renum countdown "+renum);
       var element = document.getElementById("remakerplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
@@ -501,7 +483,6 @@ function onSearchResponseRemaker(response) { // the remaker
       });
 
       rePlaynum++;
-      console.log("rePlaynum in the add loop "+rePlaynum);
       document.getElementById("remakerplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -528,9 +509,7 @@ function onSearchResponseCinefix(response) { // Cinefix
   if(ciPlaynum > 0){
     do {
       ciPlaynum --;
-      console.log("ciPlaynum countdown "+ciPlaynum);
       renum = ciPlaynum +1;
-      console.log("renum countdown "+renum);
       var element = document.getElementById("cinefixplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
@@ -561,7 +540,6 @@ function onSearchResponseCinefix(response) { // Cinefix
       });
 
       ciPlaynum++;
-      console.log("ciPlaynum in the add loop "+ciPlaynum);
       document.getElementById("cinefixplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -588,9 +566,7 @@ function onSearchResponseMrSundayMovies(response) { // MrSunday
   if(mrPlaynum > 0){
     do {
       mrPlaynum --;
-      console.log("mrPlaynum countdown "+mrPlaynum);
       renum = mrPlaynum +1;
-      console.log("renum countdown "+renum);
       var element = document.getElementById("mrsundayplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
@@ -621,7 +597,6 @@ function onSearchResponseMrSundayMovies(response) { // MrSunday
       });
 
       mrPlaynum++;
-      console.log("mrPlaynum in the add loop "+mrPlaynum);
       document.getElementById("mrsundayplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -648,9 +623,7 @@ function onSearchResponsePainting(response) { // Painting
   if(paPlaynum > 0){
     do {
       paPlaynum --;
-      console.log("paPlaynum countdown "+paPlaynum);
       renum = paPlaynum +1;
-      console.log("renum countdown "+renum);
       var element = document.getElementById("paintingplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
@@ -681,7 +654,6 @@ function onSearchResponsePainting(response) { // Painting
       });
 
       paPlaynum++;
-      console.log("paPlaynum in the add loop "+paPlaynum);
       document.getElementById("paintingplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -708,9 +680,7 @@ function onSearchResponseGoodBadFlicks(response) { // the goodbad
   if(goPlaynum > 0){
     do {
       goPlaynum --;
-      console.log("goPlaynum countdown "+goPlaynum);
       renum = goPlaynum +1;
-      console.log("renum countdown "+renum);
       var element = document.getElementById("goodbadplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
@@ -741,7 +711,6 @@ function onSearchResponseGoodBadFlicks(response) { // the goodbad
       });
 
       goPlaynum++;
-      console.log("goPlaynum in the add loop "+goPlaynum);
       document.getElementById("goodbadplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
@@ -768,9 +737,7 @@ function onSearchResponsewisecrack(response) { //  wisecrack
   if(wiPlaynum > 0){
     do {
       wiPlaynum --;
-      console.log("wiPlaynum countdown "+wiPlaynum);
       renum = wiPlaynum +1;
-      console.log("renum countdown "+renum);
       var element = document.getElementById("wisecrackplayer"+renum);   // need to make it remove all the players
       element.parentNode.removeChild(element); 
     }
@@ -801,7 +768,6 @@ function onSearchResponsewisecrack(response) { //  wisecrack
       });
 
       wiPlaynum++;
-      console.log("wiPlaynum in the add loop "+wiPlaynum);
       document.getElementById("wisecrackplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
       //incement down the vnumber
       vnumber --;
