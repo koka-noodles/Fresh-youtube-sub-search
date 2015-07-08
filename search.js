@@ -173,7 +173,7 @@ function onSearchResponsestucky(response) { // stuckman
   if(vnumber > 0){
 
     document.getElementById("stcol").className = document.getElementById("stcol").className.replace( /(?:^|\s)empty(?!\S)/g , '' )
-
+    document.getElementById("stcol").className += " notempty";
 
     // I'm going to add up to three players
     document.getElementById("nostuckytitle").innerHTML = "<h2></h2>";   
@@ -202,11 +202,12 @@ function onSearchResponsestucky(response) { // stuckman
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
+ 
+      document.getElementById("stcol").className = document.getElementById("stcol").className.replace( /(?:^|\s)notempty(?!\S)/g , '' )
+      document.getElementById("stcol").className += " empty";
+
       document.getElementById("nostuckytitle").innerHTML = "<h2>No results From Stuckman</h2>";   
       document.getElementById("stuckytitle").innerHTML = "<h2></h2>";
-
-      document.getElementById("stcol").className += " empty";
-     // document.getElementById("stcol").style.cssText +=';'+ "width: 0%; height: 0%; padding: 0px; min-height: 0px; min-width: 0px;  border: 0px;";
   }
 }
 
@@ -232,6 +233,7 @@ function onSearchResponseJoe(response) { // a joe
   if(vnumber > 0){
 
     document.getElementById("jocol").className = document.getElementById("jocol").className.replace( /(?:^|\s)empty(?!\S)/g , '' )
+    document.getElementById("jocol").className += " notempty";
 
 
     // I'm going to add up to three players
@@ -261,10 +263,13 @@ function onSearchResponseJoe(response) { // a joe
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
+
+      document.getElementById("jocol").className = document.getElementById("jocol").className.replace( /(?:^|\s)notempty(?!\S)/g , '' )
+      document.getElementById("jocol").className += " empty";
+
       document.getElementById("nojoeytitle").innerHTML = "<h2>No results From Joe </h2>"; 
       document.getElementById("joeytitle").innerHTML = "<h2></h2>";  
 
-      document.getElementById("jocol").className += " empty";
   }
 }
 
@@ -290,6 +295,7 @@ function onSearchResponseKermode(response) { // kermode
   if(vnumber > 0){
 
     document.getElementById("kecol").className = document.getElementById("kecol").className.replace( /(?:^|\s)empty(?!\S)/g , '' )
+    document.getElementById("kecol").className += " notempty";
 
     // I'm going to add up to three players
     document.getElementById("nokermodetitle").innerHTML = "<h2></h2>";   
@@ -318,9 +324,12 @@ function onSearchResponseKermode(response) { // kermode
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
+
+      document.getElementById("kecol").className = document.getElementById("kecol").className.replace( /(?:^|\s)notempty(?!\S)/g , '' )
+      document.getElementById("kecol").className += " empty";
+
       document.getElementById("nokermodetitle").innerHTML = "<h2>No results From kermode</h2>";   
       document.getElementById("kermodetitle").innerHTML = "<h2></h2>";
-      document.getElementById("kecol").className += " empty";
   } 
 }
 
@@ -346,7 +355,8 @@ function onSearchResponseEscapist(response) { // the escapist
   if(vnumber > 0){
 
     document.getElementById("escol").className = document.getElementById("escol").className.replace( /(?:^|\s)empty(?!\S)/g , '' )
-
+    document.getElementById("escol").className += " notempty"
+    ;
     // I'm going to add up to three players
     document.getElementById("noescapisttitle").innerHTML = "<h2></h2>";   
     document.getElementById("escapisttitle").innerHTML = "<h2>escapist results</h2>";
@@ -374,10 +384,11 @@ function onSearchResponseEscapist(response) { // the escapist
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
+      document.getElementById("escol").className = document.getElementById("escol").className.replace( /(?:^|\s)notempty(?!\S)/g , '' )
+      document.getElementById("escol").className += " empty";
+
       document.getElementById("noescapisttitle").innerHTML = "<h2>No results From escapist</h2>";   
       document.getElementById("escapisttitle").innerHTML = "<h2></h2>";
-
-      document.getElementById("escol").className += " empty";
   }
 }
 
@@ -403,7 +414,7 @@ function onSearchResponseGuardian(response) { // the Guardian
   if(vnumber > 0){
 
     document.getElementById("gucol").className = document.getElementById("gucol").className.replace( /(?:^|\s)empty(?!\S)/g , '' )
-
+    document.getElementById("gucol").className += " notempty";
 
     // I'm going to add up to three players
     document.getElementById("noguardiantitle").innerHTML = "<h2></h2>";   
@@ -432,10 +443,11 @@ function onSearchResponseGuardian(response) { // the Guardian
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
+      document.getElementById("gucol").className = document.getElementById("gucol").className.replace( /(?:^|\s)notempty(?!\S)/g , '' )
+      document.getElementById("gucol").className += " empty";
+
       document.getElementById("noguardiantitle").innerHTML = "<h2>No results From guardian</h2>";   
       document.getElementById("guardiantitle").innerHTML = "<h2></h2>";
-
-      document.getElementById("gucol").className += " empty";
   }
 }
 
@@ -461,7 +473,7 @@ function onSearchResponseRemaker(response) { // the remaker
   if(vnumber > 0){
 
     document.getElementById("recol").className = document.getElementById("recol").className.replace( /(?:^|\s)empty(?!\S)/g , '' )
-
+    document.getElementById("recol").className += " notempty";
 
     // I'm going to add up to three players
     document.getElementById("noremakertitle").innerHTML = "<h2></h2>";   
@@ -490,10 +502,11 @@ function onSearchResponseRemaker(response) { // the remaker
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
+      document.getElementById("recol").className = document.getElementById("recol").className.replace( /(?:^|\s)notempty(?!\S)/g , '' )
+      document.getElementById("recol").className += " empty";
+
       document.getElementById("noremakertitle").innerHTML = "<h2>No results From remaker</h2>";  
       document.getElementById("remakertitle").innerHTML = "<h2></h2>"; 
-
-      document.getElementById("recol").className += " empty";
   }
 }
 
@@ -519,6 +532,7 @@ function onSearchResponseCinefix(response) { // Cinefix
   if(vnumber > 0){
 
     document.getElementById("cicol").className = document.getElementById("cicol").className.replace( /(?:^|\s)empty(?!\S)/g , '' )
+    document.getElementById("cicol").className += " notempty";
 
     // I'm going to add up to three players
     document.getElementById("nocinefixtitle").innerHTML = "<h2></h2>";   
@@ -547,10 +561,12 @@ function onSearchResponseCinefix(response) { // Cinefix
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
+      document.getElementById("cicol").className = document.getElementById("cicol").className.replace( /(?:^|\s)notempty(?!\S)/g , '' )
+      document.getElementById("cicol").className += " empty";
+
       document.getElementById("nocinefixtitle").innerHTML = "<h2>No results From cinefix</h2>";   
       document.getElementById("cinefixtitle").innerHTML = "<h2></h2>";
 
-      document.getElementById("cicol").className += " empty";
   }
 }
 
@@ -576,6 +592,7 @@ function onSearchResponseMrSundayMovies(response) { // MrSunday
   if(vnumber > 0){
 
     document.getElementById("mrcol").className = document.getElementById("mrcol").className.replace( /(?:^|\s)empty(?!\S)/g , '' )
+    document.getElementById("mrcol").className += " notempty";
 
     // I'm going to add up to three players
     document.getElementById("nomrsundaytitle").innerHTML = "<h2></h2>";   
@@ -604,10 +621,12 @@ function onSearchResponseMrSundayMovies(response) { // MrSunday
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
+      document.getElementById("mrcol").className = document.getElementById("mrcol").className.replace( /(?:^|\s)notempty(?!\S)/g , '' )
+      document.getElementById("mrcol").className += " empty";
+
       document.getElementById("nomrsundaytitle").innerHTML = "<h2>No results From mrsunday</h2>";   
       document.getElementById("mrsundaytitle").innerHTML = "<h2></h2>";
 
-      document.getElementById("mrcol").className += " empty";
   }
 }
 
@@ -633,6 +652,7 @@ function onSearchResponsePainting(response) { // Painting
   if(vnumber > 0){
 
     document.getElementById("pacol").className = document.getElementById("pacol").className.replace( /(?:^|\s)empty(?!\S)/g , '' )
+    document.getElementById("pacol").className += " notempty";
 
     // I'm going to add up to three players
     document.getElementById("nopaintingtitle").innerHTML = "<h2></h2>";   
@@ -661,10 +681,11 @@ function onSearchResponsePainting(response) { // Painting
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
+      document.getElementById("pacol").className = document.getElementById("pacol").className.replace( /(?:^|\s)notempty(?!\S)/g , '' )
+      document.getElementById("pacol").className += " empty";
+
       document.getElementById("nopaintingtitle").innerHTML = "<h2>No results From painting</h2>";
       document.getElementById("paintingtitle").innerHTML = "<h2></h2>";   
-
-      document.getElementById("pacol").className += " empty";
   }
 }
 
@@ -718,10 +739,11 @@ function onSearchResponseGoodBadFlicks(response) { // the goodbad
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
+      document.getElementById("gocol").className = document.getElementById("gocol").className.replace( /(?:^|\s)notempty(?!\S)/g , '' )
+      document.getElementById("gocol").className += " empty";
+
       document.getElementById("nogoodbadtitle").innerHTML = "<h2>No results From goodbad</h2>";   
       document.getElementById("goodbadtitle").innerHTML = "<h2></h2>";
-
-      document.getElementById("gocol").className += " empty";
   }
 }
 
@@ -747,6 +769,7 @@ function onSearchResponsewisecrack(response) { //  wisecrack
   if(vnumber > 0){
 
     document.getElementById("wicol").className = document.getElementById("wicol").className.replace( /(?:^|\s)empty(?!\S)/g , '' )
+    document.getElementById("wicol").className += " notempty";
 
     // I'm going to add up to three players
     document.getElementById("nowisecracktitle").innerHTML = "<h2></h2>";   
@@ -775,10 +798,11 @@ function onSearchResponsewisecrack(response) { //  wisecrack
     while(vnumber > 0); // the cap number is more then none    
   }
   else{
+      document.getElementById("wicol").className = document.getElementById("wicol").className.replace( /(?:^|\s)notempty(?!\S)/g , '' )
+      document.getElementById("wicol").className += " empty";
+  
       document.getElementById("nowisecracktitle").innerHTML = "<h2>No results From wisecrack</h2>";   
       document.getElementById("wisecracktitle").innerHTML = "<h2></h2>";
-
-      document.getElementById("wicol").className += " empty";
   }
 }
 

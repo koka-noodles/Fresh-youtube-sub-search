@@ -107,6 +107,10 @@ h1{
   border: none;
 }
 
+.notempty{
+  min-height: 528px;
+}
+
 
 /*animation*/
 
